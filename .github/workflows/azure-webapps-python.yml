@@ -39,7 +39,8 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v3.0.0
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          # python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.9'
           cache: 'pip'
 
       - name: Create and start virtual environment
