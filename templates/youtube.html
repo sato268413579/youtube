@@ -1,0 +1,48 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block body %}
+    <form action="{% url 'submit_post' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <p>{{title}}</p>
+        </div>
+        <p>ログイン情報</p>
+        <table class="table-blue">
+            <thead>
+                <td>id</td>
+                <td>ログインID</td>
+                <td>名前</td>
+            </thead>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                    <td>{{ row.2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <table>
+            {% with ''|center:10 as range %}
+            {% for i in range %}
+                <tr>
+                    <td>
+                        aaa
+                    </td>
+                    <td>
+                        aaa
+                    </td>
+                    <td>
+                        aaa
+                    </td>
+                    <td>
+                        aaa
+                    </td>
+                </tr>
+            {% endfor %}
+            {% endwith %}
+        </table>
+
+        <button type="submit">送信</button>
+    </form>
+{% endblock %}
