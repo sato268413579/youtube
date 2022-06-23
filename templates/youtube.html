@@ -4,10 +4,12 @@
 {% block body %}
     <form action="{% url 'submit_post' %}" method="POST">
         {% csrf_token %}
-        <div>
-            <p>{{title}}</p>
+        <div class="keyword-area">
+            <input type="text" class="keyword">
+            <button>検索</button>
+            <a href="{% url 'upload_file_select' %}" style="color: white; text-decoration: none;">動画投稿</a>
         </div>
-        <p>ログイン情報</p>
+        <!-- <p>ログイン情報</p>
         <table class="table-blue">
             <thead>
                 <td>id</td>
@@ -21,28 +23,33 @@
                     <td>{{ row.2 }}</td>
                 </tr>
             {% endfor %}
-        </table>
+        </table> -->
+        <nav class="nav-categories-item">
+            <li>すべて</li>
+            <li>ゲーム</li>
+            <li>ミックス</li>
+            <li>音楽</li>
+            <li>アクション&アドベンチャー</li>
+            <li>キャラクターアニメ</li>
+            <li>最近アップロードされた動画</li>
+            <li>視聴済み</li>
+            <li>新しい動画の発見</li>
+        </nav>
         <table>
-            {% with ''|center:10 as range %}
-            {% for i in range %}
-                <tr>
-                    <td>
-                        aaa
-                    </td>
-                    <td>
-                        aaa
-                    </td>
-                    <td>
-                        aaa
-                    </td>
-                    <td>
-                        aaa
-                    </td>
-                </tr>
+            {% for thumbnail in thumbnails %}
+                {% if forloop.counter|divisibleby:"5" %}
+                    <tr>
+                {% endif %}
+                        <td class="thumbnail-hover" style="vertical-align: top;">
+                            <a href="{% url 'media_detail' %}?media_id={{ thumbnail.0 }}" class="thumbnail-text">
+                                <img src="static\thumbnail\{{ thumbnail.3 }}">
+                                <label>{{ thumbnail.2 }}</label>
+                            </a>
+                        </td>
+                {% if forloop.counter|divisibleby:"5" %}
+                    </tr>
+                {% endif %}
             {% endfor %}
-            {% endwith %}
         </table>
-
-        <button type="submit">送信</button>
     </form>
 {% endblock %}

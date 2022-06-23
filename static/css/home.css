@@ -1,0 +1,30 @@
+.nav-categories-item {
+    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #555555;
+    border-bottom: 1px solid #555555;
+}
+
+.nav-categories-item li {
+    list-style: none;
+    float: left;
+    color: white;
+    margin: 0.5%;
+    font-size: 14px;
+    padding: 4px 7px;
+    border-radius: 3em;
+    background-color: #444444;
+}
+
+.keyword-area {
+    height: 7%;
+}
+
+.keyword {
+    border: 0.1em solid #555555;
+    background-color: #444444;
+    -webkit-appearance: none;
+    width: 40%;
+    height: 100%;
+}

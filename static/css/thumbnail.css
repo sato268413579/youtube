@@ -1,0 +1,14 @@
+.yt-thumbnail {
+    width: 100%;
+    height: 30%;
+    border: 1px solid black;
+}
+
+.thumbnail-hover:hover {
+    background-color: lightgray;
+}
+
+.thumbnail-text {
+    color: white;
+    text-decoration: none;
+}

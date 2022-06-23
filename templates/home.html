@@ -3,6 +3,9 @@
     <head>
         <link href="static\css\table.css" rel="stylesheet">
         <link href="static\css\left-sideber.css" rel="stylesheet">
+        <link href="static\css\thumbnail.css" rel="stylesheet">
+        <link href="static\css\body.css" rel="stylesheet">
+        <link href="static\css\home.css" rel="stylesheet">
         {% block head %}
         {% endblock %}
     </head>
@@ -10,7 +13,7 @@
         <div class="article">
             <div class="side">
                 <nav>
-                    <li><a>ホーム</a></li>
+                    <li><a href="{% url 'index' %}">ホーム</a></li>
                     <li><a>探索</a></li>
                     <li><a>ショート</a></li>
                     <li><a>登録チャンネル</a></li>

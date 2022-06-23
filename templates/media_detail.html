@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block body %}
+    <div>
+        <video controls width="75%" height="70%">
+            <source src="static\videos\himura.mkv" type="video/mp4">
+        </video>
+    </div>
+    <div style="text-align: left;">
+        <label style="color: white;">{{ media_detail.2 }}</label>
+    </div>
+{% endblock %}

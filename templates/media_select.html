@@ -1,0 +1,95 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="bg_onetime_popup">
+        <div class="onetime_popup">
+            <p class="onetime_popup_title">動画のアップロード</p>
+            <hr size="1" color="#444444">
+            <div class="onetime_popup_content">
+                <p>オレの中のオレ</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            if (sessionStorage.getItem('disp_popup')) {
+                sessionStorage.setItem('disp_popup', 'on');
+                var popup = document.getElementsByClassName('bg_onetime_popup');
+                popup[0].classList.add('js_active');
+                popup[0].onclick = function () {
+                    popup[0].classList.remove('js_active');
+                }
+            }
+        }, false);
+    </script>
+
+    <style>
+        .bg_onetime_popup {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 9999;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+
+        .bg_onetime_popup.js_active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .onetime_popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 50%;
+            min-width: 500px;
+            background-color: #333333;
+            cursor: pointer;
+            border-radius: 0.5em;
+        }
+
+        .onetime_popup_title {
+            position: relative;
+            margin: 5px 5px;
+            padding-left: 10px;
+            padding-top: 10px;
+            width: 100%;
+            margin: 0px;
+            background-color: #333333;
+            color: #fff;
+            text-align: left;
+            line-height: 1.5;
+            border-radius: 0.5em;
+        }
+        .onetime_popup_title::before,
+        .onetime_popup_title::after {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            content: "";
+        }
+        .onetime_popup_title::before {
+            transform: rotate(45deg);
+        }
+        .onetime_popup_title::after {
+            transform: rotate(-45deg);
+        }
+
+        .onetime_popup_content {
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
